@@ -1,0 +1,90 @@
+// src/lib/styles/_theme.scss
+
+// --- 1. Define Core Colors as Sass Variables ---
+$primary-brand: #007bff; 
+$secondary-brand: #d4a108; 
+$success-brand: #28a745; 
+$danger-brand: #dc3545; 
+$neutral-brand: #6c757d; 
+$link-brand: #0d6efd; 
+$ai-brand: #11c071;
+
+
+$text-dark: #212529;
+$text-light: #f8f9fa;
+$background-light: #ffffff;
+$background-dark: #1a1a1a;
+$border-light: #000000;
+$border-dark: #ffffff;
+
+
+@function lighten-color($argument1, $percent)  {
+    @return  color-mix(in srgb, var($argument1), $percent, white);
+}
+
+
+// --- 3. Define CSS Custom Properties (The Global Color Sheet, and variables) ---
+:root {
+    --primary-color: #{$primary-brand};
+    --secondary-color: #{$secondary-brand};
+    --success-color: #{$success-brand};
+    --danger-color: #{$danger-brand};
+    --neutral-color: #{$neutral-brand};
+
+    --ai-brand:  #{$ai-brand};
+
+    --link-color: #{$link-brand};
+
+    --text-color: #{$text-dark};
+    --btn-text-color: #{$text-light};
+    --background-color: #{$background-light};
+    --widget-background: #{$background-light};
+    --border-color: #{$border-light};
+
+    --hover-darken: #{var(--text-color)};
+    --primary-hover-color: #{darken-color($primary-brand, 8%)};
+
+
+    --small-gap: 2px;
+    --medium-gap: 10px;
+    --large-gap: 20px;
+    --largest-gap: 25px;
+
+    --nav-width: 700px;
+
+}
+
+
+// --- 4. Define the Dark Theme Override ---
+[data-theme="dark"] {
+    --primary-color: #{lighten-color($primary-brand, 10%)}; 
+    --secondary-color: #{$secondary-brand};
+    --success-color: #{lighten-color($success-brand, 10%)};
+    --danger-color: #{lighten-color($danger-brand, 10%)};
+    --neutral-color: #{lighten-color($neutral-brand, 15%)};
+    
+    --text-color: #{$text-light};
+    --background-color: #{$background-dark};
+    --widget-background: #{lighten-color($background-dark, 5%)};
+    --border-color: #{$border-dark};
+
+    --primary-hover-color: #{lighten-color($primary-brand, 20%)};
+    --hover-darken: #{var(--text-color)};
+
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+
+    color: var(--text-color);
+    
+    // theme transition
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+ 
+    // prevents margin collapse
+    margin: 0;
+
+    
+}

@@ -1,0 +1,622 @@
+
+.main-grid {
+    display: grid;
+    flex: auto;
+    grid-template-columns: 2fr 1fr;
+    align-content: flex-start;
+
+    gap: 20px;
+    padding: 20px;
+}
+
+.main-frame {
+    display: flex;
+    flex: auto;
+    align-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+
+
+.s-column {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 4px;
+    
+    
+}
+
+.text-area {
+    width: 100%;
+    height: 160px;
+    padding-bottom: 0px;
+    border-radius: 7px;
+    resize: none;
+
+    text-align: left;
+
+}
+
+
+input{
+    
+ color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 9px;
+    border-radius: 5px;
+    border: 1px solid color-mix(in srgb, var(--text-color) 80%, transparent);;
+    background-color:  color-mix(in srgb, var(--base-bg) 50%, transparent);
+    font-size: 0.86rem;
+    box-sizing: border-box;
+    margin: 40px 10px;
+
+    
+    
+    &:focus {
+        outline: none;
+        border-color: var(--primary-color); // Bootstrap primary color
+    }
+
+    &.line{
+        margin: 10px 0px;
+        min-width: 400px; 
+        margin-bottom: 10px
+    }
+
+
+}
+
+li {
+    margin-bottom: 0.5rem;
+    font-size: rem;
+    font-style: italic;
+
+}
+
+
+
+  .mini-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 5px 10px;
+        background-color:rgba(240, 240, 240, 0);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        color: #333;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+
+        svg {
+            margin-right: 5px;
+        }
+    }
+
+
+      .inline-link{
+        text-decoration: none;
+        color: color-mix(in srgb, var(--link-color) 90%, var(--text-color));
+    }
+
+ 
+
+    .small-info{
+
+        font-size: 0.8rem;
+        margin: 0px;
+        opacity: 0.7;
+       
+    }
+
+.api-input{
+    margin-top: 0px;
+    margin: 20px;
+    justify-self: center;
+
+}
+
+.widget-input{
+    margin: 20px;
+    justify-self: center;
+
+    
+}
+
+
+.thin-outline{
+    border-width: 1px;
+    border-style: solid;
+    border-color: color-mix(in srgb, var(--border-color) 10%, transparent);
+}
+
+
+
+
+@mixin opposable{
+    display: flex;
+    flex: auto;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+
+@mixin dynamic-hover {
+    --hover-percentage: 50%;
+
+    &:hover {
+        background-color: color-mix(in srgb, var(--base-bg)  var(--hover-percentage), var(--hover-darken));
+    }
+}
+
+
+
+
+@mixin dynamic-layout {
+
+// regular layout
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0px;
+
+    // compact
+ 
+
+
+     &.compact {
+        padding: 5px;
+    }
+     &.compact-v {
+        padding: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+    }
+
+      &.spread-x {
+        gap: 20px
+    }
+
+
+    &.airtight {
+        
+        padding: 0px;
+        margin: 0px;
+    }
+
+     &.no-y {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    &.contained{
+            display: flex;
+            flex: 0;
+            flex-grow: 0;
+        
+    }
+
+    &.line {
+        
+        white-space: nowrap;
+
+    }
+
+    &.fill {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-left:  0px;
+        margin-right:  0px;
+    }
+
+}
+
+
+.invisible {
+    opacity: 0;
+}
+
+
+.success {
+    color: var(--success-color);
+}
+.failure {
+    color: var(--danger-color);
+}
+
+        .partial-opacity {
+            opacity: 0.5;
+        }
+        .full-opacity {
+            opacity: 1;
+        }
+
+        .x-centered {
+            display: flex; 
+            justify-content: center; 
+        }
+
+           .x-left {
+            display: flex; 
+            justify-content: left; 
+            justify-self: left; 
+        }
+
+        .y-centered {
+            display: flex;
+            align-self: center;
+            align-items: center;
+            align-content: center; 
+        }
+        .small {
+            font-size: 0.8rem; 
+        }
+        .one-line {
+            white-space: nowrap; 
+            overflow: hidden;
+        }
+     
+
+
+.fade-in {
+    --target-opacity: 1;
+    &.partial-opacity {
+        --target-opacity: 0.5;
+    }
+     &.full-opacity {
+        --target-opacity: 1;
+    }
+
+    animation-name: fadeIn 0.5s ease-in-out;
+}
+        @keyframes fadeIn{
+            from {opacity: 0;}
+            to {opacity: var(--target-opacity)}
+        }
+        
+
+
+   
+/* ------ Idk yet ------ */
+
+.stage {
+    background-color: black ;
+}
+
+.row{
+    @include opposable;
+    flex-direction: row;
+}
+
+
+
+.scrollable{
+    scrollbar-color: color-mix(in srgb, var(--text-color) 10%, transparent)  rgba(0,0,0,0);
+}
+textarea {
+        scrollbar-width: thin;
+    @extend .scrollable    
+}
+
+
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    align-self: center;
+    animation: spin 1s linear infinite;
+
+}
+
+
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+/*--------------------- Interactables ------------------------ */
+
+// Multiple buttons side by side [option][option2][option3]
+
+
+.selector{
+    display: flex;
+    flex: auto;
+    justify-content: space-evenly;
+  
+    background-color: color-mix(in srgb, var(--background-color) 40%, transparent);
+    border-radius: 50px;
+
+    box-shadow: 0px 2px 5px color-mix(in srgb, var(--text-color) 10%, transparent);
+
+    min-width: var(--nav-width);
+    max-width: var(--nav-width);
+
+    margin: auto;
+    gap: var(--small-gap);
+   
+    padding: var(--medium-gap);
+
+    button{
+          margin: var(--small-gap);
+          border-radius: 50px;
+          --base-txt: var(--text-color)
+          --hover-percentage: 95%
+
+    }
+
+    
+}
+
+// main button class
+.btn {
+    --base-bg:  var(--primary-color);
+    --base-txt: var(--btn-text-color);
+
+
+    border: 0px;
+    // lighter highlights on transparent buttons
+    &.transparent{
+
+        --btn-text-color: var(--text-color);
+        --base-bg:  transparent;
+        --hover-percentage: 90%;
+    }
+
+    &.thin-outline{
+        border-width: 1px;
+        border-style: solid;
+        border-color: color-mix(in srgb, var(--border-color) 40%, transparent);
+    }
+
+
+    background-color: var(--base-bg);
+
+    &.active{
+        --hover-percentage:90%;
+
+        background-color: color-mix(in srgb, var(--text-color) 10%, transparent); ;
+    }
+
+
+
+    font-size: var(--font-size-base);
+
+    gap: 5px;
+    color: var(--base-txt);
+
+    // When it's in the selector element
+    
+    @include opposable;
+    @include dynamic-hover;
+    @include dynamic-layout;
+    
+    svg {
+        color: var(--base-txt);
+        width: 1em;
+        height: 1em;
+    }
+
+  
+    pointer-events: auto;
+    cursor: pointer;
+
+
+    transition: all 0.2s;
+
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    margin: 0px;
+    transition: 0.2s ease-in-out;
+}
+
+    .progress-bar::-webkit-meter-bar {
+        @extend .progress-bar
+    }
+
+
+
+.item{
+    @include opposable;
+    @include dynamic-layout;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    
+
+    
+    justify-content: space-between;
+    
+    &.stat{
+        flex-direction: column;
+        padding: 0px;
+         h5, h6{
+          opacity: 0.8;
+        }
+
+    }
+
+    &.regular{
+        flex:auto;
+        padding: var(--medium-gap);
+        background-color: color-mix(in srgb, var(--text-color) 10%, var(--background-color ));
+        width: 95%;
+    }
+
+    &.highlighted{
+        background-color: color-mix(in srgb, var(--text-color) 50%, var(--background-color ));
+    }
+
+}
+
+
+/* ----------------- Dynamic Layout ------------------------ */
+
+// linebreak
+
+hr {
+
+
+}
+
+
+// default icon appearance
+svg{
+    color: var(--text-color);
+}
+
+// set default text colors
+
+p, h1, h2, h3, h4, h5, h6, li {
+    color: var(--text-color)   
+}
+
+
+// mini container
+.mini-container {
+
+    @extend .thin-outline;
+
+    &.dynamic {
+        @include dynamic-layout;
+    }
+
+    border-radius: 10px;
+    padding: var(--largest-gap);
+    margin-bottom: var(--largest-gap);
+    
+    box-shadow: 0px 2px 5px color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+.widget {
+    @extend .mini-container;
+
+    min-height: 500px;
+    min-width: 500px;
+    max-height: 600px; 
+    width: 600px;
+
+
+    background-color: var(--background-color);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    padding: var(--medium-gap)
+
+}
+
+   .api-feedback{
+
+        --result-color: var(--success-color);
+
+        &.error{
+            --result-color: var(--danger-color);
+        }
+
+        background-color: color-mix(in srgb, var(--result-color) 10%, transparent);
+        color:  color-mix(in srgb, var(--result-color) 50%, var(--text-color));
+
+    
+
+     
+        border: var(--result-color) 2px solid;
+        border-radius: 10px;
+
+        margin: 15px 0px;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+
+
+        gap: 20px;
+        display: flex;
+        padding: 5px;
+
+        svg {
+            color: var(--result-color);
+        }
+
+    }
+
+
+
+// Headings inside mini contianers
+.mini-h {
+    @include opposable;
+    
+    flex-direction: row;
+    gap: var(--large-gap);
+    font-size: medium;
+    font-weight: bold;
+    justify-self: left;
+    
+
+      &.dynamic {
+        @include dynamic-layout;
+    }
+
+
+
+
+}
+
+
+// This is what buttons will be contained in
+// Default is a horizontal flex, and center aligned
+.options{
+    @include dynamic-layout;
+
+
+      display: block;
+      gap: --small-gap;
+
+      display: flex;
+      flex-direction: row;
+      
+      margin:  0px var(--medium-gap);
+      gap: var(--medium-gap);
+
+      &.vertical{
+        flex-direction: column;
+      }
+
+}
+
+
+
+
+
+/* ----------------- Misc. Styles ------------------------ */
+
+// this will be deprecated soon
+.action-button {
+    @extend .btn;
+}
